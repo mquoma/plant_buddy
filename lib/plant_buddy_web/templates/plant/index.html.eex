@@ -1,0 +1,32 @@
+<h2>Listing Plants</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Frequency</th>
+      <th>Last water</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for plant <- @plants do %>
+    <tr>
+      <td><%= plant.name %></td>
+      <td><%= plant.location %></td>
+      <td><%= plant.frequency %></td>
+      <td><%= plant.last_water %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: plant_path(@conn, :show, plant), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: plant_path(@conn, :edit, plant), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: plant_path(@conn, :delete, plant), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Plant", to: plant_path(@conn, :new) %></span>

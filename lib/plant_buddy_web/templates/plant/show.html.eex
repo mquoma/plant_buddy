@@ -1,0 +1,28 @@
+<h2>Show Plant</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @plant.name %>
+  </li>
+
+  <li>
+    <strong>Location:</strong>
+    <%= @plant.location %>
+  </li>
+
+  <li>
+    <strong>Frequency:</strong>
+    <%= @plant.frequency %>
+  </li>
+
+  <li>
+    <strong>Last water:</strong>
+    <%= @plant.last_water %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: plant_path(@conn, :edit, @plant) %></span>
+<span><%= link "Back", to: plant_path(@conn, :index) %></span>
